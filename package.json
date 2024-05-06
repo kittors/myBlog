@@ -1,0 +1,27 @@
+{
+  "name": "myblog",
+  "version": "1.0.0",
+  "description": "Share the blog of learning content",
+  "main": "index.js",
+  "scripts": {
+    "docs:dev": "vuepress dev docs",
+    "docs:build": "vuepress build docs",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/kittors/myBlogs.git"
+  },
+  "keywords": [
+    "blogs"
+  ],
+  "author": "kittors",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/kittors/myBlogs/issues"
+  },
+  "homepage": "https://github.com/kittors/myBlogs#readme",
+  "devDependencies": {
+    "vuepress": "^1.9.10"
+  }
+}
