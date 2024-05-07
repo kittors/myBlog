@@ -5,7 +5,7 @@ const domain = "https://blog.07230805.xyz";
 const tags = ["程序员", "编程", "计算机", "网络"];
 
 export default defineConfig({
-    title: "Kittors的编程之路",
+    title: "Kittors的学习之路",
     description: "开启全栈之路",
     head: [
         // 站点图标
