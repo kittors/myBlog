@@ -1,7 +1,10 @@
-export default [{
-    title: "编程学习",
-    collapsable: false,
-    children: [
-        'Github的webhooks的使用.md'
-    ]
-}]
+export default [
+    "",
+    {
+        title: "自动化部署",
+        collapsable: true,
+        children: [
+            '自动化部署/Github的webhooks的使用.md'
+        ]
+    }
+]
