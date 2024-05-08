@@ -266,3 +266,4 @@ python3 webhooks_server.py
 
 在自己的开发环境下 将自己开发的web代码 push到远程仓库的主分支下
 `webhooks_server.py`执行情况如下
+![](https://github.com/kittors/picx-images-hosting/raw/master/image.lvx8ca08.webp)
