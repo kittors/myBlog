@@ -12,4 +12,4 @@ permalink: /
 
 ## 本站内容
 
-- [编程学习](/编程学习)
+- [编程学习](/ProgrammingLearning)
