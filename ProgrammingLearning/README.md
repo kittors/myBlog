@@ -1,3 +1,7 @@
+---
+permalink: /ProgrammingLearning
+---
+
 # 编程学习
 >
 > 作者：[程序员Kittors](https://github.com/kittors)
