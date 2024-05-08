@@ -1,4 +1,4 @@
-# Github的webhooks的使用
+# GitHub的WebHooks的使用
 >
 > 作者：[程序员Kittors](https://github.com/kittors)
 >
@@ -6,22 +6,22 @@
 
 
 ## 文章大致内容
-本篇文章主要简单介绍了下Github的webhooks的应用，主要内容包括了
+本篇文章主要简单介绍了下GitHub的WebHooks的应用，主要内容包括了
 
-- webhooks的介绍
-- 我使用webhooks的目的
+- WebHooks的介绍
+- 我使用WebHooks的目的
 - debian系统下相关的库的安装
 - debian系统下的GitHub 的SSH配置
-- 使用python以及Flask框架开发简单的webhooks接口
+- 使用python以及Flask框架开发简单的WebHooks接口
 - 如何在debian系统下使用webhook
 
-## webhooks的介绍
-简单来说webhooks是一种基于HTTP的回调函数，在指定的HTTP通信返回信息的时候执行特定的方法，是用于两个应用API之间的轻量通讯工具，从而实现特定的自动化行为。
+## WebHooks的介绍
+简单来说WebHooks是一种基于HTTP的回调函数，在指定的HTTP通信返回信息的时候执行特定的方法，是用于两个应用API之间的轻量通讯工具，从而实现特定的自动化行为。
 
-## 我使用webhooks的目的
+## 我使用WebHooks的目的
 在最开始的学习编程的时候，我还是一个纯前端程序员，每次写完一个web应用，到部署的时候，都需要自己去打包web应用，然后ssh链接服务器，去将对应的文件拷贝到nginx服务器指定的web应用路径下。这样的操作十分的繁琐。
 
-有没有什么方法可以自动化完成类似的一系列工作呢。随着编程学习的加深，慢慢就接触到了webhooks，这样的功能岂不是就能完美实现我曾经遐想的自动化部署操作。
+有没有什么方法可以自动化完成类似的一系列工作呢。随着编程学习的加深，慢慢就接触到了WebHooks，这样的功能岂不是就能完美实现我曾经遐想的自动化部署操作。
 
 ## debian系统下相关的库的安装
 
@@ -162,7 +162,7 @@ ssh-keyscan github.com >> ~/.ssh/known_hosts
 
 接下来你可以尝试在你的服务器通过SSH的方式 clone 你的github上的某个仓库，如果成功了就说明操作成功了（记得安装git命令哦，使用git clone）
 
-## 使用python以及Flask框架开发简单的webhooks接口
+## 使用python以及Flask框架开发简单的WebHooks接口
 
 这是我使用了flask开发的接口，依赖python3环境
 当用户将代码push到主分支后实现部署web服务的一些列操作
@@ -257,13 +257,13 @@ if __name__ == '__main__':
 
 ### 在debian系统下执行python程序
 
-进入到放置python程序的目录执行以下命令(webhooks_server.py是保存了python程序的文件)
+进入到放置python程序的目录执行以下命令(WebHooks_server.py是保存了python程序的文件)
 ```Shell
-python3 webhooks_server.py
+python3 WebHooks_server.py
 ```
 运行情况如下
 ![](https://github.com/kittors/picx-images-hosting/raw/master/image.3rb1igw3a4.webp)
 
 在自己的开发环境下 将自己开发的web代码 push到远程仓库的主分支下
-`webhooks_server.py`执行情况如下
+`WebHooks_server.py`执行情况如下
 ![](https://github.com/kittors/picx-images-hosting/raw/master/image.lvx8ca08.webp)
