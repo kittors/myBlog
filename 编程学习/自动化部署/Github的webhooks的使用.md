@@ -8,7 +8,7 @@
 ## 文章大致内容
 本篇文章主要简单介绍了下GitHub的WebHooks的应用，主要内容包括了
 
-- WebHooks的介绍
+- Webhooks的介绍
 - 我使用WebHooks的目的
 - debian系统下相关的库的安装
 - debian系统下的GitHub 的SSH配置
