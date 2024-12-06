@@ -7,7 +7,7 @@ config:
     full: true
     background: tint-plate
     hero:
-      name: 老师！我实在太想进步了
+      name: 老师！我太想进步了
       # tagline: VuePress Next Theme
       text: 打造属于自己的知识仓库
       actions:
