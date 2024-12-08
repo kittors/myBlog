@@ -18,6 +18,9 @@ permalink: /article/svunhckd/
 
 现在已经有了免费的方案，就是通过cloudflare自己的SaaS服务，去白嫖一些公共CNAME的cloudflare节点配置，从而加速自己的网站的访问。
 
-以下是原理图
+来看下我优化后的效果
+
+![优化后的效果](https://syncoss.07230805.xyz/1731733637171_.pic.jpg "优化后的效果")
+
 
 
