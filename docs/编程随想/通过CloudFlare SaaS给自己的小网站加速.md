@@ -80,64 +80,80 @@ permalink: /article/svunhckd/
    - 价格实惠
    - 操作界面友好
 
-#### 操作开始
-进入cloudflare页面登录你的账号，[点击](https://dash.cloudflare.com/c7eb0898bb161f0101a28e745372ca12/websites)进入网站管理页面,将你购买的域名托管在cloudflare中。
-另一个域名托管在[DNSPod](https://console.dnspod.cn)中，为啥要使用两个dns解析服务？ 因为cloudFlare已经限制了同名的主机记录了，为了实现分流效果，所以需要还是还是将另一个域名解析在DNSPod中。
+#### 操作步骤
 
-在cloudflare 的网站DNS解析服务中选择将一个域名进行A类型的解析，记住要开启cloudFlare的DNS代理哦！
-例如我操作的是
+1. 域名配置
+- 登录 [Cloudflare 控制台](https://dash.cloudflare.com/)，进入网站管理页面
+- 将主域名托管到 Cloudflare
+- 将辅助域名托管到 [DNSPod](https://console.dnspod.cn)
+  > 注：使用两个 DNS 解析服务是因为 Cloudflare 限制了同名主机记录，为实现分流效果需要将另一个域名解析在 DNSPod
+
+2. Cloudflare DNS 配置
+- 在 Cloudflare 的 DNS 解析服务中添加 A 记录解析
+- 确保开启 Cloudflare 的 DNS 代理（橙色云朵图标）
+示例配置：
 ![DNS解析](https://syncoss.07230805.xyz/cloudflare_dns_202412241044.jpg "DNS解析")
-可以找个[站长工具](https://www.itdog.cn)检查下解析的结果
+
+3. 验证解析结果
+- 使用[站长工具](https://www.itdog.cn)检查解析结果
 ![解析结果](https://syncoss.07230805.xyz/DNS_result_20241224.pic.jpg "解析结果")
 
-然后在cloudflare的SSL/TTS -> 自定义主机名下 中添加回退源
+4. 配置回退源
+- 进入 Cloudflare 的 SSL/TLS -> 自定义主机名
+- 添加回退源配置
 ![添加回退源](https://syncoss.07230805.xyz/1881735009442_.pic.jpg "添加回退源")
-
-等待出现回退源状态为有效为止
+- 等待回退源状态变为"有效"
 ![回退源状态](https://syncoss.07230805.xyz/1861735008954_.pic.jpg "回退源状态")
 
-在DNSPod中添加一个子域名 blog.31415.online
+5. DNSPod 配置
+- 添加子域名（如：blog.31415.online）
 ![添加子域名](https://syncoss.07230805.xyz/1871735009130_.pic.jpg "添加子域名")
-别问，不知道怎么添加子域名，你自己Google下就懂了
 
-在cloudflare的SSL/TTS-> 自定义主机名下 添加主机名
+6. 配置自定义主机名
+- 在 Cloudflare 的 SSL/TLS -> 自定义主机名中添加配置
 ![添加自定义主机名](https://syncoss.07230805.xyz/1891735009544_.pic.jpg "添加自定义主机名")
-
-等待添加的自定义主机名初始化完成
+- 等待初始化完成
 ![自定义主机名初始化](https://syncoss.07230805.xyz/1901735009682_.pic.jpg "自定义主机名初始化")
 
-获得需要添加的TXT记录
+7. TXT 记录配置
+- 获取需要添加的 TXT 记录
 ![获得需要添加的TXT记录](https://syncoss.07230805.xyz/1911735009768_.pic.jpg)
-将TXT记录添加到你的DNS解析的二级域名中,注意不需要带上你的二级域名内容，只需要带上_cf-custom-hostname即可
+- 在 DNSPod 中添加 TXT 记录（仅需添加 _cf-custom-hostname 部分）
 ![添加TXT解析](https://syncoss.07230805.xyz/1921735009969_.pic.jpg)
-回到cloudflare页面去检查下 出现有效就是已经添加记录成功了
+- 等待 Cloudflare 验证完成
 ![检查状态](https://syncoss.07230805.xyz/1931735010070_.pic.jpg)
 
-到目前为止所有的物料都是已经准备好了，接下来就是使用公共CNAME
-有一个网站可以找到比较合适的公共CNAME [www.wetest.vip](https://www.wetest.vip/page/cloudflare/cname.html)
-
-找一个你觉得不错的
+8. 配置公共 CNAME
+- 访问 [www.wetest.vip](https://www.wetest.vip/page/cloudflare/cname.html) 选择合适的公共 CNAME
 ![公共CNAME](https://oss.07230805.xyz/files/1941735010597_.pic.jpg)
 
-在DNSPod 添加两条记录一条处理境内的，设置默认的CNAME添加,另一条设置为境外使用1.0.0.5，设置A记录添加
+9. DNSPod 最终配置
+- 添加境内外解析记录：
+  - 境内：添加默认 CNAME 记录
+  - 境外：添加 A 记录（1.0.0.5）
 ![添加记录](https://oss.07230805.xyz/files/1951735010996_.pic.jpg)
-
-为二级域名blog.31415.online添加一个@的CNAME记录，记录值就是cdn.31415.online
+- 为二级域名添加 CNAME 记录
 ![添加cdn记录值](https://oss.07230805.xyz/files/1961735011155_.pic.jpg)
 
-这样你的回流服务算是完成啦！
+### Web 服务部署
 
-## 接下来我们部署一个web服务
-我的博客网站是部署在vercel上的，主要是因为可以通过vercel监听github的push从而实现网站的自动化部署
+我选择将博客部署在 Vercel 上，主要是看中其可以监听 GitHub 的 push 实现自动化部署。为解决访问问题，我采用以下方案：
 
-进入我自己的服务器，我在上面使用docker搭建了一个nginx服务，通过nginx服务反向代理vercel链接到blog.31415.online。这样我们就可以直接访问vercel的内容，并且走了cloudflare的优化线路以及代理服务，避免了vercel在大陆被封锁的问题。
-我的服务器使用的是[clawCloud](https://claw.cloud),我检查过路由,上游是阿里云，配置极高价格十分的便宜，并且不需要实名以及备案。
-推荐使用 科技lion脚本工具箱
-``` bash
+1. 在服务器上使用 Docker 部署 Nginx
+2. 通过 Nginx 反向代理 Vercel 内容到 blog.31415.online
+3. 实现通过 Cloudflare 优化线路访问 Vercel 内容
+
+服务器选用 [clawCloud](https://claw.cloud)：
+- 使用阿里云上游
+- 高配置低价格
+- 无需实名和备案
+
+Nginx 部署推荐使用科技 lion 脚本工具箱：
+```bash
 curl -sS -O https://kejilion.pro/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
 ```
-直接通过他安装nginx服务，或者通过nginx manager管理
-设置nginx反向代理
+
+配置 Nginx 反向代理：
 ![设置反向代理](https://oss.07230805.xyz/files/1971735014643_.pic.jpg)
 
-现在我们的网站也有了对应的加速了
+至此，网站加速优化完成。
