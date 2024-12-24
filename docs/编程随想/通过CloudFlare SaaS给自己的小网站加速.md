@@ -125,15 +125,15 @@ permalink: /article/svunhckd/
 
 8. 配置公共 CNAME
 - 访问 [www.wetest.vip](https://www.wetest.vip/page/cloudflare/cname.html) 选择合适的公共 CNAME
-![公共CNAME](https://oss.07230805.xyz/files/1941735010597_.pic.jpg)
+![公共CNAME](https://syncoss.07230805.xyz/1941735010597_.pic.jpg)
 
 9. DNSPod 最终配置
 - 添加境内外解析记录：
   - 境内：添加默认 CNAME 记录
   - 境外：添加 A 记录（1.0.0.5）
-![添加记录](https://oss.07230805.xyz/files/1951735010996_.pic.jpg)
+![添加记录](https://syncoss.07230805.xyz/1951735010996_.pic.jpg)
 - 为二级域名添加 CNAME 记录
-![添加cdn记录值](https://oss.07230805.xyz/files/1961735011155_.pic.jpg)
+![添加cdn记录值](https://syncoss.07230805.xyz/1961735011155_.pic.jpg)
 
 ### Web 服务部署
 
@@ -154,6 +154,6 @@ curl -sS -O https://kejilion.pro/kejilion.sh && chmod +x kejilion.sh && ./kejili
 ```
 
 配置 Nginx 反向代理：
-![设置反向代理](https://oss.07230805.xyz/files/1971735014643_.pic.jpg)
+![设置反向代理](https://syncoss.07230805.xyz/1971735014643_.pic.jpg)
 
 至此，网站加速优化完成。
