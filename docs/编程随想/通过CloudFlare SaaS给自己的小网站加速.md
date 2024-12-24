@@ -150,7 +150,7 @@ permalink: /article/svunhckd/
 
 Nginx 部署推荐使用科技 lion 脚本工具箱：
 ```bash
-curl -sS -O https://kejilion.pro/kejilion.sh && chmod +x kejilion.sh && ./kejilion.sh
+bash <(curl -sL kejilion.sh)
 ```
 
 配置 Nginx 反向代理：
