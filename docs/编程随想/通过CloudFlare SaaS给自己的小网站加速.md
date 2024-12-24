@@ -139,3 +139,5 @@ curl -sS -O https://kejilion.pro/kejilion.sh && chmod +x kejilion.sh && ./kejili
 直接通过他安装nginx服务，或者通过nginx manager管理
 设置nginx反向代理
 ![设置反向代理](https://oss.07230805.xyz/files/1971735014643_.pic.jpg)
+
+现在我们的网站也有了对应的加速了
