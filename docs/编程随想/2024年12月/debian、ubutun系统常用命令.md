@@ -1,5 +1,5 @@
 ---
-title: debian系统常用命令
+title: debian、ubutun系统常用命令
 tags:
   - pnpm
   - npm
